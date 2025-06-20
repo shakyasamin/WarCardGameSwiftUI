@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var playerCard = "card7"
-    var cpuCard = "card13"
-    var  playerScore = 0
+    @State var playerCard = "card7"
+    @State var cpuCard = "card13"
+    
+    var playerScore = 0
     var cpuScore = 0
     
     var body: some View {
@@ -23,26 +24,26 @@ struct ContentView: View {
             
             VStack{
                 Spacer()
-
+                
                 Image("logo")
                 Spacer()
-
+                
                 HStack{
                     Spacer()
-
-
+                    
+                    
                     Image(playerCard)
-
+                    
                     Spacer()
-
+                    
                     Image(cpuCard)
-
+                    
                     Spacer()
                 }
                 
                 Spacer()
-
-
+                
+                
                 Button {
                     deal()
                 } label: {
@@ -50,17 +51,17 @@ struct ContentView: View {
                 }
                 
                 
-
+                
                 Spacer()
-
+                
                 HStack{
                     Spacer()
-
+                    
                     VStack{
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-
+                        
                         Text(String(playerScore))
                             .font(.largeTitle)
                     }
@@ -72,7 +73,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-
+                        
                         Text(String(cpuScore))
                             .font(.largeTitle)
                     }
@@ -80,13 +81,22 @@ struct ContentView: View {
                 }
                 .foregroundColor(.white)
                 Spacer()
-
+                
             }
         }
     }
     
     func deal() {
-        print("Deal card")
+        //Randomize the players card
+        playerCard = "card" + String(Int.random(in: 2...14))
+        
+        //Randomize the cpu card
+        cpuCard = "card" + String(Int.random(in: 2...14))
+        
+        
+        //update the scores
+        
+        
     }
 }
 
